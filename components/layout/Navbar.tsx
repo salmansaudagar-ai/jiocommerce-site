@@ -108,13 +108,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: '#635BFF' }}>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg bg-jio-purple">
             JC
           </div>
-          <span className="text-lg font-semibold hidden sm:inline" style={{ color: '#0F172A' }}>
+          <span className="text-lg font-semibold hidden sm:inline text-jio-navy">
             Jio Commerce
           </span>
-          <span className="ml-2 px-2 py-1 text-xs font-medium rounded" style={{ backgroundColor: 'rgba(99, 91, 255, 0.1)', color: '#635BFF' }}>
+          <span className="ml-2 px-2 py-1 text-xs font-medium rounded bg-jio-purple/10 text-jio-purple">
             Platform
           </span>
         </Link>
@@ -125,10 +125,7 @@ export default function Navbar() {
             <div key={item.label} className="relative group">
               <button
                 onClick={() => item.submenu && handleDropdown(item.label)}
-                className="px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1"
-                style={{ color: '#0F172A' }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}
+                className="px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 text-jio-navy hover:text-jio-purple"
               >
                 {item.label}
                 {item.submenu && <FiChevronDown className="w-4 h-4" />}
@@ -140,7 +137,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-2 gap-8 p-8">
                     {item.submenu.map((section) => (
                       <div key={section.category}>
-                        <h3 className="text-xs font-semibold uppercase tracking-wide mb-4" style={{ color: '#0F172A' }}>
+                        <h3 className="text-xs font-semibold uppercase tracking-wide mb-4 text-jio-navy">
                           {section.category}
                         </h3>
                         <ul className="space-y-3">
@@ -148,10 +145,7 @@ export default function Navbar() {
                             <li key={subitem.label}>
                               <Link
                                 href={subitem.href}
-                                className="text-sm transition-colors"
-                                style={{ color: '#0F172A' }}
-                                onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}
+                                className="text-sm transition-colors text-jio-navy hover:text-jio-purple"
                               >
                                 <div className="font-medium">{subitem.label}</div>
                                 <div className="text-xs text-gray-600">{subitem.desc}</div>
@@ -172,8 +166,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-6">
           <Button
             onClick={() => {}}
-            className="text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all font-medium text-sm"
-            style={{ backgroundColor: '#635BFF' }}
+            className="bg-jio-purple text-white px-6 py-2 rounded-lg hover:bg-opacity-90 transition-all font-medium text-sm"
           >
             Request a Demo
           </Button>
@@ -182,8 +175,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
-          style={{ color: '#0F172A' }}
+          className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors text-jio-navy"
         >
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
@@ -199,10 +191,7 @@ export default function Navbar() {
                   onClick={() =>
                     item.submenu && handleDropdown(item.label)
                   }
-                  className="w-full text-left font-medium flex items-center justify-between py-2"
-                  style={{ color: '#0F172A' }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}
+                  className="w-full text-left font-medium flex items-center justify-between py-2 text-jio-navy hover:text-jio-purple"
                 >
                   {item.label}
                   {item.submenu && (
@@ -218,10 +207,10 @@ export default function Navbar() {
 
                 {/* Mobile Submenu */}
                 {item.submenu && activeDropdown === item.label && (
-                  <div className="pl-4 space-y-3 mt-2 border-l-2" style={{ borderColor: '#635BFF' }}>
+                  <div className="pl-4 space-y-3 mt-2 border-l-2 border-jio-purple">
                     {item.submenu.map((section) => (
                       <div key={section.category}>
-                        <h4 className="text-xs font-semibold uppercase mb-2" style={{ color: '#635BFF' }}>
+                        <h4 className="text-xs font-semibold uppercase mb-2 text-jio-purple">
                           {section.category}
                         </h4>
                         <ul className="space-y-2">
@@ -229,10 +218,7 @@ export default function Navbar() {
                             <li key={subitem.label}>
                               <Link
                                 href={subitem.href}
-                                className="text-sm text-gray-700 transition-colors"
-                                style={{ color: 'rgb(55, 65, 81)' }}
-                                onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.color = 'rgb(55, 65, 81)'; }}
+                                className="text-sm text-gray-700 transition-colors hover:text-jio-purple"
                               >
                                 {subitem.label}
                               </Link>
@@ -248,8 +234,7 @@ export default function Navbar() {
 
             <Button
               onClick={() => {}}
-              className="w-full text-white py-3 rounded-lg hover:bg-opacity-90 transition-all font-medium mt-4"
-              style={{ backgroundColor: '#635BFF' }}
+              className="w-full bg-jio-purple text-white py-3 rounded-lg hover:bg-opacity-90 transition-all font-medium mt-4"
             >
               Request a Demo
             </Button>

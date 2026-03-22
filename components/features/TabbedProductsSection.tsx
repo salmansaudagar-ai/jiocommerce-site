@@ -97,7 +97,7 @@ export default function TabbedProductsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0F172A' }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
             Products Built for Every Need
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -111,15 +111,15 @@ export default function TabbedProductsSection() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className="px-6 py-3 font-medium transition-all relative whitespace-nowrap text-sm"
-              style={{ color: activeTab === tab.id ? '#635BFF' : '' }}
+              className={`px-6 py-3 font-medium transition-all relative whitespace-nowrap text-sm ${
+                activeTab === tab.id ? 'text-jio-purple' : ''
+              }`}
             >
               {tab.label}
               {activeTab === tab.id && (
                 <motion.div
                   layoutId="tab-underline"
-                  className="absolute bottom-0 left-0 right-0 h-1 rounded-full"
-                  style={{ backgroundColor: '#635BFF' }}
+                  className="absolute bottom-0 left-0 right-0 h-1 rounded-full bg-jio-purple"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
               )}
@@ -140,7 +140,7 @@ export default function TabbedProductsSection() {
             >
               {/* Left Content */}
               <div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#0F172A' }}>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 text-jio-navy">
                   {activeTabContent.title}
                 </h3>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -157,8 +157,8 @@ export default function TabbedProductsSection() {
                       transition={{ duration: 0.3 }}
                       className="flex items-center gap-3"
                     >
-                      <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(99, 91, 255, 0.1)' }}>
-                        <FiCheck className="w-4 h-4" style={{ color: '#635BFF' }} />
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center bg-jio-purple/10">
+                        <FiCheck className="w-4 h-4 text-jio-purple" />
                       </div>
                       <span className="text-gray-700">{feature}</span>
                     </motion.li>
@@ -168,8 +168,7 @@ export default function TabbedProductsSection() {
                 {/* CTA */}
                 <a
                   href="#"
-                  className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group"
-                  style={{ color: '#635BFF' }}
+                  className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group text-jio-purple"
                 >
                   Explore {activeTabContent.label} →
                 </a>
@@ -180,8 +179,7 @@ export default function TabbedProductsSection() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4 }}
-                className="aspect-square rounded-2xl border flex items-center justify-center"
-                style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.1), rgba(16, 185, 129, 0.1))', borderColor: 'rgba(99, 91, 255, 0.2)' }}
+                className="aspect-square rounded-2xl border border-jio-purple/20 flex items-center justify-center bg-gradient-to-br from-jio-purple/10 to-jio-teal/10"
               >
                 <div className="text-center">
                   <div className="text-5xl mb-4">

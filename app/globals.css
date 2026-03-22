@@ -1,37 +1,9 @@
-@import "tailwindcss";
-
-@theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #0F172A;
-  --font-sans: 'Inter', system-ui, sans-serif;
-
-  /* Jio Commerce Brand Colors */
-  --color-jio-purple: #635BFF;
-  --color-jio-navy: #0F172A;
-  --color-jio-navy-light: #1E293B;
-  --color-jio-amber: #F59E0B;
-  --color-jio-teal: #10B981;
-  --color-jio-blue: #3B82F6;
-
-  /* Animation */
-  --animate-counter-fade-in: counterFadeIn 0.8s ease-in-out forwards;
-}
-
-@keyframes counterFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans);
+  font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

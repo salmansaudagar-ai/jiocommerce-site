@@ -27,7 +27,7 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section className="py-20 lg:py-32" style={{ background: 'linear-gradient(to right, rgba(99, 91, 255, 0.1), rgba(59, 130, 246, 0.1))' }}>
+    <section className="py-20 lg:py-32 bg-gradient-to-r from-jio-purple/10 to-jio-blue/10">
       <div className="max-w-2xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,12 +37,12 @@ export default function NewsletterSection() {
           className="text-center"
         >
           {/* Icon */}
-          <div className="inline-block mb-6 p-3 rounded-full" style={{ backgroundColor: 'rgba(99, 91, 255, 0.2)' }}>
+          <div className="inline-block mb-6 p-3 rounded-full bg-jio-purple/20">
             <div className="text-4xl">📬</div>
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#0F172A' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-jio-navy">
             Stay Ahead with Exclusive Insights
           </h2>
 
@@ -61,20 +61,14 @@ export default function NewsletterSection() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isSubmitted}
-                className="flex-1 px-6 py-4 rounded-lg border-2 focus:outline-none transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed font-medium"
-                style={{
-                  borderColor: '#d1d5db',
-                }}
-                onFocus={(e) => { e.currentTarget.style.borderColor = '#635BFF'; }}
-                onBlur={(e) => { e.currentTarget.style.borderColor = '#d1d5db'; }}
+                className="flex-1 px-6 py-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-jio-purple transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed font-medium"
               />
               <motion.button
                 type="submit"
                 disabled={isLoading || isSubmitted}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 text-white rounded-lg font-semibold hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all whitespace-nowrap flex items-center justify-center gap-2"
-                style={{ backgroundColor: '#635BFF' }}
+                className="px-8 py-4 bg-jio-purple text-white rounded-lg font-semibold hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all whitespace-nowrap flex items-center justify-center gap-2"
               >
                 {isLoading && (
                   <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

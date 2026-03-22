@@ -42,14 +42,14 @@ const FOOTER_SECTIONS = [
 
 export default function Footer() {
   return (
-    <footer className="text-white" style={{ backgroundColor: '#0F172A' }}>
+    <footer className="text-white bg-jio-navy">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 py-20 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: '#635BFF' }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg bg-jio-purple">
                 JC
               </div>
               <span className="text-lg font-semibold">Jio Commerce</span>

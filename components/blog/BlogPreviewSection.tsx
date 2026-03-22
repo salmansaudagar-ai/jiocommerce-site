@@ -63,7 +63,7 @@ export default function BlogPreviewSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#0F172A' }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-jio-navy">
             Unlock Commerce Excellence
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
@@ -83,13 +83,10 @@ export default function BlogPreviewSection() {
             <motion.article
               key={post.id}
               variants={cardVariants}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-200 transition-all hover:shadow-lg"
-              style={{ borderColor: 'rgb(229, 231, 235)' }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(99, 91, 255, 0.3)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; }}
+              className="group bg-white rounded-2xl overflow-hidden border border-gray-200 transition-all hover:shadow-lg hover:border-jio-purple/30"
             >
               {/* Image */}
-              <div className="aspect-video flex items-center justify-center text-6xl group-hover:scale-105 transition-transform overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.1), rgba(16, 185, 129, 0.1))' }}>
+              <div className="aspect-video flex items-center justify-center text-6xl group-hover:scale-105 transition-transform overflow-hidden bg-gradient-to-br from-jio-purple/10 to-jio-teal/10">
                 {post.image}
               </div>
 
@@ -97,7 +94,7 @@ export default function BlogPreviewSection() {
               <div className="p-6">
                 {/* Category */}
                 <div className="inline-block mb-3">
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ color: '#635BFF', backgroundColor: 'rgba(99, 91, 255, 0.1)' }}>
+                  <span className="text-xs font-semibold px-3 py-1 rounded-full text-jio-purple bg-jio-purple/10">
                     {post.category}
                   </span>
                 </div>
@@ -106,7 +103,7 @@ export default function BlogPreviewSection() {
                 <p className="text-xs text-gray-500 mb-3">{post.date}</p>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold mb-3 transition-colors line-clamp-2" style={{ color: '#0F172A' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}>
+                <h3 className="text-xl font-bold mb-3 transition-colors line-clamp-2 text-jio-navy group-hover:text-jio-purple">
                   {post.title}
                 </h3>
 
@@ -118,8 +115,7 @@ export default function BlogPreviewSection() {
                 {/* CTA */}
                 <Link
                   href={`/blog/${post.id}`}
-                  className="inline-flex items-center gap-2 font-semibold text-sm hover:gap-3 transition-all group/link"
-                  style={{ color: '#635BFF' }}
+                  className="inline-flex items-center gap-2 font-semibold text-sm hover:gap-3 transition-all group/link text-jio-purple"
                 >
                   Read article →
                 </Link>
@@ -138,8 +134,7 @@ export default function BlogPreviewSection() {
         >
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 font-semibold text-lg hover:gap-3 transition-all group/btn"
-            style={{ color: '#635BFF' }}
+            className="inline-flex items-center gap-2 font-semibold text-lg hover:gap-3 transition-all group/btn text-jio-purple"
           >
             Explore all articles →
           </Link>

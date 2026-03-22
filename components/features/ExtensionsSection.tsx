@@ -67,8 +67,8 @@ export default function ExtensionsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0F172A' }}>
-            Extend & Enhance with <span style={{ color: '#635BFF' }}>JCP Extensions</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
+            Extend & Enhance with <span className="text-jio-purple">JCP Extensions</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Powerful add-ons to supercharge your commerce experience
@@ -96,13 +96,13 @@ export default function ExtensionsSection() {
 
                     {/* Content */}
                     <div className="p-8">
-                      <h4 className="text-xl font-bold mb-3" style={{ color: '#0F172A' }}>
+                      <h4 className="text-xl font-bold mb-3 text-jio-navy">
                         {ext.title}
                       </h4>
                       <p className="text-gray-600 mb-6 text-sm leading-relaxed">
                         {ext.description}
                       </p>
-                      <button className="font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all group/btn" style={{ color: '#635BFF' }}>
+                      <button className="font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all group/btn text-jio-purple">
                         Explore →
                       </button>
                     </div>
@@ -117,36 +117,22 @@ export default function ExtensionsSection() {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className="p-3 rounded-full border-2 transition-all"
-              style={{
-                borderColor: currentIndex === 0 ? '#e5e7eb' : '#635BFF',
-                color: currentIndex === 0 ? '#d1d5db' : '#635BFF',
-                backgroundColor: currentIndex === 0 ? 'transparent' : 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                if (currentIndex !== 0) e.currentTarget.style.backgroundColor = 'rgba(99, 91, 255, 0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-              }}
+              className={`p-3 rounded-full border-2 transition-all ${
+                currentIndex === 0
+                  ? 'border-gray-300 text-gray-400'
+                  : 'border-jio-purple text-jio-purple hover:bg-jio-purple/10'
+              }`}
             >
               <FiChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
-              className="p-3 rounded-full border-2 transition-all"
-              style={{
-                borderColor: currentIndex >= maxIndex ? '#e5e7eb' : '#635BFF',
-                color: currentIndex >= maxIndex ? '#d1d5db' : '#635BFF',
-                backgroundColor: 'transparent'
-              }}
-              onMouseEnter={(e) => {
-                if (currentIndex < maxIndex) e.currentTarget.style.backgroundColor = 'rgba(99, 91, 255, 0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-              }}
+              className={`p-3 rounded-full border-2 transition-all ${
+                currentIndex >= maxIndex
+                  ? 'border-gray-300 text-gray-400'
+                  : 'border-jio-purple text-jio-purple hover:bg-jio-purple/10'
+              }`}
             >
               <FiChevronRight className="w-5 h-5" />
             </button>

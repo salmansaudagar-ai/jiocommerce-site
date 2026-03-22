@@ -21,11 +21,11 @@ const variantStyles: Record<ButtonVariant, string> = {
     'bg-red-500 text-white hover:bg-red-600 active:bg-red-700 transition-all',
 };
 
-const variantInlineStyles: Record<ButtonVariant, React.CSSProperties> = {
-  primary: { backgroundColor: '#635BFF', color: 'white' },
-  secondary: { borderColor: '#635BFF', color: '#635BFF' },
-  ghost: { color: '#635BFF' },
-  danger: {},
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: 'bg-jio-purple text-white',
+  secondary: 'border-jio-purple text-jio-purple',
+  ghost: 'text-jio-purple',
+  danger: '',
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -56,10 +56,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           inline-flex items-center justify-center
           disabled:opacity-50 disabled:cursor-not-allowed
           ${variantStyles[variant]}
+          ${variantClasses[variant]}
           ${sizeStyles[size]}
           ${className}
         `}
-        style={variantInlineStyles[variant]}
         {...props}
       >
         {isLoading ? (

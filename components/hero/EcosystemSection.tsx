@@ -50,9 +50,9 @@ export default function EcosystemSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0F172A' }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
             Powering Commerce across<br />
-            <span style={{ color: '#635BFF' }}>Reliance Retail Ecosystem</span>
+            <span className="text-jio-purple">Reliance Retail Ecosystem</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Trusted by India's leading retail brands and platforms
@@ -73,9 +73,9 @@ export default function EcosystemSection() {
               variants={itemVariants}
               className="group"
             >
-              <div className="border rounded-2xl px-6 py-8 flex flex-col items-center justify-center h-full transition-all duration-300 cursor-pointer hover:shadow-lg" style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.05), rgba(16, 185, 129, 0.05))', borderColor: 'rgba(99, 91, 255, 0.1)' }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(99, 91, 255, 0.3)'; e.currentTarget.style.boxShadow = '0 10px 25px rgba(99, 91, 255, 0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(99, 91, 255, 0.1)'; e.currentTarget.style.boxShadow = 'none'; }}>
+              <div className="border border-jio-purple/10 rounded-2xl px-6 py-8 flex flex-col items-center justify-center h-full transition-all duration-300 cursor-pointer hover:shadow-lg hover:border-jio-purple/30 hover:shadow-jio-purple/10 bg-gradient-to-br from-jio-purple/5 to-jio-teal/5">
                 <div className="text-center">
-                  <div className="text-lg font-bold mb-2 group-hover:transition-colors" style={{ color: '#0F172A' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}>
+                  <div className="text-lg font-bold mb-2 text-jio-navy group-hover:text-jio-purple transition-colors">
                     {brand.name}
                   </div>
                   <div className="text-xs text-gray-500 uppercase tracking-wide">

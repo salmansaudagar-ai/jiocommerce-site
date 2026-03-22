@@ -69,9 +69,9 @@ export default function CentralServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0F172A' }}>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
             How Jio Commerce Platform<br />
-            <span style={{ color: '#635BFF' }}>Makes Business Easy</span>
+            <span className="text-jio-purple">Makes Business Easy</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Integrated services that work together to simplify commerce operations
@@ -84,23 +84,22 @@ export default function CentralServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12 bg-white rounded-2xl overflow-hidden transition-all group"
-          style={{ borderColor: 'rgba(99, 91, 255, 0.2)', border: '1px solid rgba(99, 91, 255, 0.2)' }}
+          className="mb-12 bg-white rounded-2xl overflow-hidden transition-all group border border-jio-purple/20 hover:border-jio-purple/30"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             {/* Text */}
             <div className="p-10 lg:p-12">
-              <h3 className="text-3xl font-bold mb-4" style={{ color: '#0F172A' }}>Master Data Hub</h3>
+              <h3 className="text-3xl font-bold mb-4 text-jio-navy">Master Data Hub</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 The central repository for all your product, customer, and business data. With built-in governance, quality controls, and multi-channel syndication capabilities.
               </p>
-              <button className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group/btn" style={{ color: '#635BFF' }}>
+              <button className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group/btn text-jio-purple">
                 Learn about Master Data Hub →
               </button>
             </div>
 
             {/* Illustration */}
-            <div className="aspect-square flex items-center justify-center p-10" style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.2), rgba(59, 130, 246, 0.2))' }}>
+            <div className="aspect-square flex items-center justify-center p-10 bg-gradient-to-br from-jio-purple/20 to-jio-blue/20">
               <div className="text-7xl">🗄️</div>
             </div>
           </div>
@@ -118,17 +117,14 @@ export default function CentralServicesSection() {
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="bg-white rounded-xl p-8 border border-gray-200 transition-all group cursor-pointer hover:shadow-lg"
-              style={{ borderColor: 'rgb(229, 231, 235)' }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(99, 91, 255, 0.3)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; }}
+              className="bg-white rounded-xl p-8 border border-gray-200 transition-all group cursor-pointer hover:shadow-lg hover:border-jio-purple/30"
             >
               <div className="text-4xl mb-4">{service.icon}</div>
-              <h4 className="text-lg font-semibold mb-2 group-hover:transition-colors" style={{ color: '#0F172A' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}>
+              <h4 className="text-lg font-semibold mb-2 text-jio-navy group-hover:text-jio-purple transition-colors">
                 {service.title}
               </h4>
               <p className="text-gray-600 text-sm mb-4">{service.description}</p>
-              <button className="text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#635BFF' }}>
+              <button className="text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity text-jio-purple">
                 Explore <FiArrowRight className="w-4 h-4" />
               </button>
             </motion.div>
