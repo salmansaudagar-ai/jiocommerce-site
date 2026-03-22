@@ -35,13 +35,13 @@ export default function HealthPage() {
     <>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-jio-navy mb-2">System Health</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: '#0F172A' }}>System Health</h1>
         <p className="text-gray-600">Monitor system status and performance</p>
       </div>
 
       {/* Health Score Card */}
       <div className="bg-white rounded-lg border border-gray-200 p-8 mb-8">
-        <h2 className="text-lg font-semibold text-jio-navy mb-6">Overall Health Score</h2>
+        <h2 className="text-lg font-semibold mb-6" style={{ color: '#0F172A' }}>Overall Health Score</h2>
 
         <div className="flex items-center gap-8">
           {/* Gauge */}
@@ -55,7 +55,7 @@ export default function HealthPage() {
             ></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <div className="text-5xl font-bold text-jio-navy">98.5</div>
+                <div className="text-5xl font-bold" style={{ color: '#0F172A' }}>98.5</div>
                 <div className="text-sm text-gray-600">Score</div>
               </div>
             </div>
@@ -65,19 +65,19 @@ export default function HealthPage() {
           <div className="flex-1 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-gray-600">Uptime</span>
-              <span className="font-semibold text-jio-navy">99.9%</span>
+              <span className="font-semibold" style={{ color: '#0F172A' }}>99.9%</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-gray-600">Response Time</span>
-              <span className="font-semibold text-jio-navy">145ms</span>
+              <span className="font-semibold" style={{ color: '#0F172A' }}>145ms</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-gray-600">Error Rate</span>
-              <span className="font-semibold text-jio-navy">0.02%</span>
+              <span className="font-semibold" style={{ color: '#0F172A' }}>0.02%</span>
             </div>
             <div className="flex items-center justify-between">
               <span className="text-gray-600">CPU Usage</span>
-              <span className="font-semibold text-jio-navy">34%</span>
+              <span className="font-semibold" style={{ color: '#0F172A' }}>34%</span>
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function HealthPage() {
             <div className="p-2 bg-red-100 rounded-lg">
               <FiAlertCircle className="w-5 h-5 text-red-600" />
             </div>
-            <h3 className="font-semibold text-jio-navy">Critical</h3>
+            <h3 className="font-semibold" style={{ color: '#0F172A' }}>Critical</h3>
           </div>
           <div className="text-3xl font-bold text-red-600">0</div>
           <p className="text-sm text-gray-600">issues</p>
@@ -101,7 +101,7 @@ export default function HealthPage() {
             <div className="p-2 bg-amber-100 rounded-lg">
               <FiAlertCircle className="w-5 h-5 text-amber-600" />
             </div>
-            <h3 className="font-semibold text-jio-navy">Warning</h3>
+            <h3 className="font-semibold" style={{ color: '#0F172A' }}>Warning</h3>
           </div>
           <div className="text-3xl font-bold text-amber-600">1</div>
           <p className="text-sm text-gray-600">issue</p>
@@ -112,7 +112,7 @@ export default function HealthPage() {
             <div className="p-2 bg-green-100 rounded-lg">
               <FiCheckCircle className="w-5 h-5 text-green-600" />
             </div>
-            <h3 className="font-semibold text-jio-navy">Healthy</h3>
+            <h3 className="font-semibold" style={{ color: '#0F172A' }}>Healthy</h3>
           </div>
           <div className="text-3xl font-bold text-green-600">28</div>
           <p className="text-sm text-gray-600">systems</p>
@@ -122,7 +122,7 @@ export default function HealthPage() {
       {/* Recent Auto-Fixes */}
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
         <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-jio-navy">Recent Activity</h2>
+          <h2 className="text-xl font-bold" style={{ color: '#0F172A' }}>Recent Activity</h2>
         </div>
 
         <div className="divide-y divide-gray-200">
@@ -146,7 +146,7 @@ export default function HealthPage() {
               </div>
 
               <div className="flex-1">
-                <h4 className="font-semibold text-jio-navy mb-1">{issue.title}</h4>
+                <h4 className="font-semibold mb-1" style={{ color: '#0F172A' }}>{issue.title}</h4>
                 <p className="text-sm text-gray-600 mb-2">{issue.description}</p>
 
                 {issue.autoFixed && (

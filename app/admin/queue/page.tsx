@@ -1,10 +1,6 @@
-import { Metadata } from 'next';
-import { FiCheck, FiX, FiEye } from 'react-icons/fi';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Content Queue | Admin',
-  description: 'Manage content queue items',
-};
+import { FiCheck, FiX, FiEye } from 'react-icons/fi';
 
 const QUEUE_ITEMS = [
   {
@@ -54,7 +50,7 @@ export default function QueuePage() {
     <>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-jio-navy mb-2">Content Queue</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: '#0F172A' }}>Content Queue</h1>
         <p className="text-gray-600">Review and manage pending content items</p>
       </div>
 
@@ -97,8 +93,8 @@ export default function QueuePage() {
                   <div className="flex items-center gap-2">
                     <div className="w-16 bg-gray-200 rounded-full h-2">
                       <div
-                        className="bg-jio-purple h-2 rounded-full"
-                        style={{ width: `${item.confidence}%` }}
+                        className="h-2 rounded-full"
+                        style={{ backgroundColor: '#635BFF', width: `${item.confidence}%` }}
                       ></div>
                     </div>
                     <span className="text-gray-700 font-semibold">{item.confidence}%</span>
@@ -108,7 +104,7 @@ export default function QueuePage() {
                 <td className="px-6 py-4 text-sm text-gray-500">{item.timestamp}</td>
                 <td className="px-6 py-4 text-sm">
                   <div className="flex items-center gap-2">
-                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600 hover:text-jio-navy">
+                    <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors text-gray-600" style={{ color: 'rgb(75, 85, 99)' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#0F172A'; }} onMouseLeave={(e) => { e.currentTarget.style.color = 'rgb(75, 85, 99)'; }}>
                       <FiEye className="w-4 h-4" />
                     </button>
                     <button className="p-2 hover:bg-green-100 rounded-lg transition-colors text-gray-600 hover:text-green-600">

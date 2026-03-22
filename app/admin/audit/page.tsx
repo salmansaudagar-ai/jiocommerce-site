@@ -78,7 +78,7 @@ export default function AuditPage() {
     <>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-jio-navy mb-2">Audit Log</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: '#0F172A' }}>Audit Log</h1>
         <p className="text-gray-600">Track all system activities and changes</p>
       </div>
 
@@ -158,7 +158,7 @@ export default function AuditPage() {
           <button className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">
             Previous
           </button>
-          <button className="px-4 py-2 bg-jio-purple text-white rounded-lg text-sm font-medium">
+          <button className="px-4 py-2 text-white rounded-lg text-sm font-medium" style={{ backgroundColor: '#635BFF' }}>
             1
           </button>
           <button className="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50">

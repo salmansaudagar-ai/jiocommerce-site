@@ -42,15 +42,15 @@ const FOOTER_SECTIONS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-jio-navy text-white">
+    <footer className="text-white" style={{ backgroundColor: '#0F172A' }}>
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 py-20 lg:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-jio-purple rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">JC</span>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: '#635BFF' }}>
+                JC
               </div>
               <span className="text-lg font-semibold">Jio Commerce</span>
             </Link>
@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-700 my-16"></div>
+        <div className="my-16" style={{ borderTop: '1px solid rgb(55, 65, 81)' }}></div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

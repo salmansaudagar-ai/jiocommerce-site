@@ -11,7 +11,7 @@ export default function SettingsPage() {
     <>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-jio-navy mb-2">Settings</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: '#0F172A' }}>Settings</h1>
         <p className="text-gray-600">Manage your platform settings and preferences</p>
       </div>
 
@@ -19,7 +19,7 @@ export default function SettingsPage() {
       <div className="space-y-8">
         {/* API Settings */}
         <div className="bg-white rounded-lg border border-gray-200 p-8">
-          <h2 className="text-xl font-bold text-jio-navy mb-6">API Configuration</h2>
+          <h2 className="text-xl font-bold mb-6" style={{ color: '#0F172A' }}>API Configuration</h2>
 
           <div className="space-y-6">
             <div>
@@ -29,7 +29,8 @@ export default function SettingsPage() {
               <input
                 type="password"
                 defaultValue="sk_live_••••••••••••••••"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-jio-purple"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                style={{ '--tw-ring-color': '#635BFF' } as React.CSSProperties}
               />
             </div>
 
@@ -40,7 +41,8 @@ export default function SettingsPage() {
               <input
                 type="text"
                 defaultValue="https://yourapi.com/webhooks/jio"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-jio-purple"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                style={{ '--tw-ring-color': '#635BFF' } as React.CSSProperties}
               />
             </div>
           </div>
@@ -48,7 +50,7 @@ export default function SettingsPage() {
 
         {/* Email Settings */}
         <div className="bg-white rounded-lg border border-gray-200 p-8">
-          <h2 className="text-xl font-bold text-jio-navy mb-6">Email Configuration</h2>
+          <h2 className="text-xl font-bold mb-6" style={{ color: '#0F172A' }}>Email Configuration</h2>
 
           <div className="space-y-6">
             <div>
@@ -58,7 +60,8 @@ export default function SettingsPage() {
               <input
                 type="text"
                 defaultValue="smtp.sendgrid.net"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-jio-purple"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                style={{ '--tw-ring-color': '#635BFF' } as React.CSSProperties}
               />
             </div>
 
@@ -70,7 +73,8 @@ export default function SettingsPage() {
                 <input
                   type="number"
                   defaultValue="587"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-jio-purple"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                style={{ '--tw-ring-color': '#635BFF' } as React.CSSProperties}
                 />
               </div>
 
@@ -81,7 +85,8 @@ export default function SettingsPage() {
                 <input
                   type="email"
                   defaultValue="noreply@jiocommerce.com"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-jio-purple"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                style={{ '--tw-ring-color': '#635BFF' } as React.CSSProperties}
                 />
               </div>
             </div>
@@ -90,7 +95,7 @@ export default function SettingsPage() {
 
         {/* Notification Settings */}
         <div className="bg-white rounded-lg border border-gray-200 p-8">
-          <h2 className="text-xl font-bold text-jio-navy mb-6">Notifications</h2>
+          <h2 className="text-xl font-bold mb-6" style={{ color: '#0F172A' }}>Notifications</h2>
 
           <div className="space-y-4">
             <label className="flex items-center gap-3 cursor-pointer">
@@ -123,7 +128,7 @@ export default function SettingsPage() {
 
         {/* Save Button */}
         <div className="flex gap-4">
-          <button className="inline-flex items-center gap-2 px-6 py-3 bg-jio-purple text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+          <button className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all" style={{ backgroundColor: '#635BFF' }}>
             <FiSave className="w-5 h-5" />
             Save Settings
           </button>

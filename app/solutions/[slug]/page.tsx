@@ -198,7 +198,7 @@ export default async function SolutionPage({ params }: Props) {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-jio-navy via-jio-navy to-jio-navy-light py-20 lg:py-32 text-white">
+      <section className="py-20 lg:py-32 text-white" style={{ background: 'linear-gradient(to bottom, #0F172A, #0F172A, #1E293B)' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text */}
@@ -211,7 +211,7 @@ export default async function SolutionPage({ params }: Props) {
                 {solution.longDescription}
               </p>
               <div className="flex gap-4">
-                <button className="px-8 py-4 bg-jio-purple text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+                <button className="px-8 py-4 style={{ backgroundColor: '#635BFF' }} text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all">
                   Get Started
                 </button>
                 <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white/10 transition-all">
@@ -221,7 +221,7 @@ export default async function SolutionPage({ params }: Props) {
             </div>
 
             {/* Illustration */}
-            <div className="aspect-square bg-gradient-to-br from-jio-purple/20 to-jio-teal/20 rounded-2xl border border-white/10 flex items-center justify-center text-8xl">
+            <div className="aspect-square style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.2), rgba(16, 185, 129, 0.2))' }} rounded-2xl border border-white/10 flex items-center justify-center text-8xl">
               {solution.icon}
             </div>
           </div>
@@ -231,7 +231,7 @@ export default async function SolutionPage({ params }: Props) {
       {/* Benefits Section */}
       <section className="py-20 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-jio-navy mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold style={{ color: '#0F172A' }} mb-16">
             Key Benefits
           </h2>
 
@@ -239,15 +239,15 @@ export default async function SolutionPage({ params }: Props) {
             {solution.benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-6 rounded-xl border border-gray-200 hover:border-jio-purple/30 hover:bg-jio-purple/5 transition-all"
+                className="flex gap-4 p-6 rounded-xl border border-gray-200 hover:style={{ borderColor: '#635BFF' }}/30 hover:style={{ backgroundColor: '#635BFF' }}/5 transition-all"
               >
                 <div className="flex-shrink-0">
-                  <div className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full bg-jio-purple/20">
-                    <FiCheck className="w-4 h-4 text-jio-purple" />
+                  <div className="flex-shrink-0 flex items-center justify-center h-6 w-6 rounded-full style={{ backgroundColor: '#635BFF' }}/20">
+                    <FiCheck className="w-4 h-4 style={{ color: '#635BFF' }}" />
                   </div>
                 </div>
                 <div>
-                  <p className="text-lg font-semibold text-jio-navy">{benefit}</p>
+                  <p className="text-lg font-semibold style={{ color: '#0F172A' }}">{benefit}</p>
                 </div>
               </div>
             ))}
@@ -258,7 +258,7 @@ export default async function SolutionPage({ params }: Props) {
       {/* Use Cases Section */}
       <section className="py-20 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-jio-navy mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold style={{ color: '#0F172A' }} mb-16">
             Ideal For
           </h2>
 
@@ -266,9 +266,9 @@ export default async function SolutionPage({ params }: Props) {
             {solution.useCases.map((useCase, index) => (
               <div
                 key={index}
-                className="p-8 bg-white rounded-xl border border-gray-200 hover:border-jio-purple/30 transition-all"
+                className="p-8 bg-white rounded-xl border border-gray-200 hover:style={{ borderColor: '#635BFF' }}/30 transition-all"
               >
-                <p className="text-lg font-semibold text-jio-navy">{useCase}</p>
+                <p className="text-lg font-semibold style={{ color: '#0F172A' }}">{useCase}</p>
               </div>
             ))}
           </div>
@@ -276,7 +276,7 @@ export default async function SolutionPage({ params }: Props) {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-jio-purple to-jio-blue py-20 lg:py-24 text-white">
+      <section className="py-20 lg:py-24 text-white" style={{ background: 'linear-gradient(to right, #635BFF, #3B82F6)' }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Start your {solution.title} journey today
@@ -284,7 +284,7 @@ export default async function SolutionPage({ params }: Props) {
           <p className="text-xl text-white/90 mb-10">
             Talk to our experts about how to implement this solution
           </p>
-          <button className="inline-flex items-center gap-2 px-8 py-4 bg-white text-jio-purple rounded-lg font-semibold hover:shadow-lg transition-all group">
+          <button className="inline-flex items-center gap-2 px-8 py-4 bg-white style={{ color: '#635BFF' }} rounded-lg font-semibold hover:shadow-lg transition-all group">
             Schedule a Demo
             <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>

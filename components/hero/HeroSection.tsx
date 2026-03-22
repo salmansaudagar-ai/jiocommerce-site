@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-jio-navy via-jio-navy to-jio-navy-light pt-32 pb-20">
+    <section className="min-h-screen pt-32 pb-20" style={{ background: 'linear-gradient(to bottom, #0F172A, #0F172A, #1E293B)' }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,8 +16,8 @@ export default function HeroSection() {
           className="text-center"
         >
           {/* Tag */}
-          <div className="inline-block mb-6 px-4 py-2 bg-jio-amber/10 border border-jio-amber rounded-full">
-            <span className="text-sm font-semibold text-jio-amber uppercase tracking-wide">
+          <div className="inline-block mb-6 px-4 py-2 rounded-full border" style={{ backgroundColor: 'rgba(245, 158, 11, 0.1)', borderColor: '#F59E0B' }}>
+            <span className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#F59E0B' }}>
               Powering India's Largest Retail Ecosystem
             </span>
           </div>
@@ -25,7 +25,7 @@ export default function HeroSection() {
           {/* Main Heading */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             The Commerce Platform<br />
-            <span className="bg-gradient-to-r from-jio-purple via-jio-blue to-jio-teal bg-clip-text text-transparent">
+            <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(to right, #635BFF, #3B82F6, #10B981)' }}>
               Behind Reliance Retail
             </span>
           </h1>
@@ -39,7 +39,8 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
             <Button
               onClick={() => {}}
-              className="bg-jio-purple text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all font-semibold text-base"
+              className="text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-all font-semibold text-base"
+              style={{ backgroundColor: '#635BFF' }}
             >
               Request a Demo
             </Button>
@@ -74,8 +75,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-20 relative"
         >
-          <div className="aspect-video bg-gradient-to-br from-jio-purple/20 to-jio-teal/20 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-jio-purple/30 via-transparent to-jio-teal/30 opacity-50"></div>
+          <div className="aspect-video rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.2), rgba(16, 185, 129, 0.2))' }}>
+            <div className="absolute inset-0 opacity-50" style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.3), transparent, rgba(16, 185, 129, 0.3))' }}></div>
             <div className="relative z-10 text-center">
               <div className="text-6xl font-bold text-white/20 mb-2">Isometric Commerce</div>
               <p className="text-white/40 text-sm">Illustration Area</p>

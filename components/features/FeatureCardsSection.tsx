@@ -6,8 +6,8 @@ import { FiCheckCircle } from 'react-icons/fi';
 const FEATURES = [
   {
     title: 'All-Purpose Commerce',
-    color: 'jio-purple',
-    bgColor: 'bg-jio-purple',
+    color: '#635BFF',
+    bgColor: '#635BFF',
     points: [
       'B2B/B2C/D2C commerce',
       'Cross-border enabled',
@@ -16,8 +16,8 @@ const FEATURES = [
   },
   {
     title: 'Scalable Solution',
-    color: 'jio-teal',
-    bgColor: 'bg-jio-teal',
+    color: '#10B981',
+    bgColor: '#10B981',
     points: [
       'No-code headless architecture',
       'Plug-and-play extensions',
@@ -26,8 +26,8 @@ const FEATURES = [
   },
   {
     title: 'Growth Friendly',
-    color: 'jio-amber',
-    bgColor: 'bg-jio-amber',
+    color: '#F59E0B',
+    bgColor: '#F59E0B',
     points: [
       'SEO-optimized by default',
       'Lightning-fast loading',
@@ -72,7 +72,8 @@ export default function FeatureCardsSection() {
             <motion.div
               key={feature.title}
               variants={cardVariants}
-              className={`${feature.bgColor} rounded-2xl p-8 md:p-10 text-white flex flex-col h-full overflow-hidden relative group`}
+              className="rounded-2xl p-8 md:p-10 text-white flex flex-col h-full overflow-hidden relative group"
+              style={{ backgroundColor: feature.bgColor }}
             >
               {/* Animated background */}
               <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">

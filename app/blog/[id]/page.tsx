@@ -219,13 +219,13 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="max-w-4xl mx-auto px-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-jio-purple font-semibold mb-6 hover:gap-3 transition-all group"
+            className="inline-flex items-center gap-2 style={{ color: '#635BFF' }} font-semibold mb-6 hover:gap-3 transition-all group"
           >
             <FiArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Blog
           </Link>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-jio-navy mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold style={{ color: '#0F172A' }} mb-6">
             {post.title}
           </h1>
 
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: Props) {
             <span>•</span>
             <span className="text-sm">{post.readTime}</span>
             <span>•</span>
-            <span className="text-xs font-semibold text-jio-purple bg-jio-purple/10 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold style={{ color: '#635BFF' }} style={{ backgroundColor: '#635BFF' }}/10 px-3 py-1 rounded-full">
               {post.category}
             </span>
           </div>
@@ -247,7 +247,7 @@ export default async function BlogPostPage({ params }: Props) {
       </section>
 
       {/* Featured Image */}
-      <div className="bg-gradient-to-br from-jio-purple/20 to-jio-teal/20 py-16 flex items-center justify-center">
+      <div className="style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.2), rgba(16, 185, 129, 0.2))' }} py-16 flex items-center justify-center">
         <div className="text-9xl">{post.image}</div>
       </div>
 
@@ -272,8 +272,8 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Author Bio */}
-        <div className="bg-jio-purple/10 rounded-lg p-8 mb-16">
-          <h3 className="font-semibold text-jio-navy mb-2">About the Author</h3>
+        <div className="style={{ backgroundColor: '#635BFF' }}/10 rounded-lg p-8 mb-16">
+          <h3 className="font-semibold style={{ color: '#0F172A' }} mb-2">About the Author</h3>
           <p className="text-gray-700">
             {post.author} is a commerce expert with deep knowledge in platform architecture,
             retail technology, and digital transformation.
@@ -282,18 +282,18 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Related Articles */}
         <div>
-          <h3 className="text-2xl font-bold text-jio-navy mb-8">Next Articles</h3>
+          <h3 className="text-2xl font-bold style={{ color: '#0F172A' }} mb-8">Next Articles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {prevPost && (
               <Link
                 href={`/blog/${postIds[currentIndex - 1]}`}
-                className="group p-6 border border-gray-200 rounded-lg hover:border-jio-purple/30 hover:bg-jio-purple/5 transition-all"
+                className="group p-6 border border-gray-200 rounded-lg hover:style={{ borderColor: '#635BFF' }}/30 hover:style={{ backgroundColor: '#635BFF' }}/5 transition-all"
               >
-                <div className="flex items-center gap-2 text-jio-purple font-semibold text-sm mb-3">
+                <div className="flex items-center gap-2 style={{ color: '#635BFF' }} font-semibold text-sm mb-3">
                   <FiArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                   Previous
                 </div>
-                <p className="font-bold text-jio-navy group-hover:text-jio-purple transition-colors">
+                <p className="font-bold style={{ color: '#0F172A' }} group-hover:style={{ color: '#635BFF' }} transition-colors">
                   {prevPost.title}
                 </p>
               </Link>
@@ -302,13 +302,13 @@ export default async function BlogPostPage({ params }: Props) {
             {nextPost && (
               <Link
                 href={`/blog/${postIds[currentIndex + 1]}`}
-                className="group p-6 border border-gray-200 rounded-lg hover:border-jio-purple/30 hover:bg-jio-purple/5 transition-all text-right"
+                className="group p-6 border border-gray-200 rounded-lg hover:style={{ borderColor: '#635BFF' }}/30 hover:style={{ backgroundColor: '#635BFF' }}/5 transition-all text-right"
               >
-                <div className="flex items-center justify-end gap-2 text-jio-purple font-semibold text-sm mb-3">
+                <div className="flex items-center justify-end gap-2 style={{ color: '#635BFF' }} font-semibold text-sm mb-3">
                   Next
                   <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-                <p className="font-bold text-jio-navy group-hover:text-jio-purple transition-colors">
+                <p className="font-bold style={{ color: '#0F172A' }} group-hover:style={{ color: '#635BFF' }} transition-colors">
                   {nextPost.title}
                 </p>
               </Link>

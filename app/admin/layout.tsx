@@ -24,11 +24,11 @@ export default function AdminLayout({
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
-      <aside className="hidden lg:flex w-64 bg-jio-navy text-white flex-col border-r border-gray-700">
+      <aside className="hidden lg:flex w-64 text-white flex-col border-r border-gray-700" style={{ backgroundColor: '#0F172A' }}>
         {/* Logo */}
         <Link href="/admin" className="flex items-center gap-2 p-6 border-b border-gray-700">
-          <div className="w-8 h-8 bg-jio-purple rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">JC</span>
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: '#635BFF' }}>
+            JC
           </div>
           <span className="font-semibold">Admin</span>
         </Link>

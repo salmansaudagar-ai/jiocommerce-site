@@ -12,13 +12,20 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-jio-purple text-white hover:bg-opacity-90 active:bg-opacity-80 transition-all',
+    'text-white hover:bg-opacity-90 active:bg-opacity-80 transition-all',
   secondary:
-    'border-2 border-jio-purple text-jio-purple hover:bg-jio-purple hover:bg-opacity-10 transition-all',
+    'border-2 hover:bg-opacity-10 transition-all',
   ghost:
-    'text-jio-purple hover:bg-jio-purple hover:bg-opacity-10 transition-all',
+    'hover:bg-opacity-10 transition-all',
   danger:
     'bg-red-500 text-white hover:bg-red-600 active:bg-red-700 transition-all',
+};
+
+const variantInlineStyles: Record<ButtonVariant, React.CSSProperties> = {
+  primary: { backgroundColor: '#635BFF', color: 'white' },
+  secondary: { borderColor: '#635BFF', color: '#635BFF' },
+  ghost: { color: '#635BFF' },
+  danger: {},
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -52,6 +59,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           ${sizeStyles[size]}
           ${className}
         `}
+        style={variantInlineStyles[variant]}
         {...props}
       >
         {isLoading ? (

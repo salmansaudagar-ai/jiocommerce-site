@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
 import { FiSearch } from 'react-icons/fi';
 
@@ -71,18 +72,13 @@ const BLOG_POSTS = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: 'Blog | Jio Commerce Platform',
-  description: 'Latest insights on commerce trends, platform features, and retail innovation.',
-};
-
 export default function BlogPage() {
   const categories = Array.from(new Set(BLOG_POSTS.map((p) => p.category)));
 
   return (
     <div className="pt-24 pb-20">
       {/* Header */}
-      <section className="bg-gradient-to-b from-jio-navy via-jio-navy to-jio-navy-light py-20 lg:py-24 text-white">
+      <section className="py-20 lg:py-24 text-white" style={{ background: 'linear-gradient(to bottom, #0F172A, #0F172A, #1E293B)' }}>
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Unlock Commerce Excellence
@@ -108,13 +104,14 @@ export default function BlogPage() {
 
           {/* Category Filter */}
           <div className="mb-16 flex flex-wrap gap-2">
-            <button className="px-4 py-2 rounded-full bg-jio-purple text-white text-sm font-medium">
+            <button className="px-4 py-2 rounded-full text-white text-sm font-medium" style={{ backgroundColor: '#635BFF' }}>
               All
             </button>
             {categories.map((cat) => (
               <button
                 key={cat}
-                className="px-4 py-2 rounded-full bg-gray-200 text-jio-navy text-sm font-medium hover:bg-gray-300 transition-colors"
+                className="px-4 py-2 rounded-full bg-gray-200 text-sm font-medium hover:bg-gray-300 transition-colors"
+                style={{ color: '#0F172A' }}
               >
                 {cat}
               </button>
@@ -127,10 +124,13 @@ export default function BlogPage() {
               <Link
                 key={post.id}
                 href={`/blog/${post.id}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-jio-purple/30 transition-all hover:shadow-lg"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-200 transition-all hover:shadow-lg"
+                style={{ borderColor: 'rgb(229, 231, 235)' }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(99, 91, 255, 0.3)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgb(229, 231, 235)'; }}
               >
                 {/* Image */}
-                <div className="aspect-video bg-gradient-to-br from-jio-purple/10 to-jio-teal/10 flex items-center justify-center text-6xl group-hover:scale-105 transition-transform overflow-hidden">
+                <div className="aspect-video flex items-center justify-center text-6xl group-hover:scale-105 transition-transform overflow-hidden" style={{ background: 'linear-gradient(to bottom right, rgba(99, 91, 255, 0.1), rgba(16, 185, 129, 0.1))' }}>
                   {post.image}
                 </div>
 
@@ -138,7 +138,7 @@ export default function BlogPage() {
                 <div className="p-6">
                   {/* Category */}
                   <div className="inline-block mb-3">
-                    <span className="text-xs font-semibold text-jio-purple bg-jio-purple/10 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ color: '#635BFF', backgroundColor: 'rgba(99, 91, 255, 0.1)' }}>
                       {post.category}
                     </span>
                   </div>
@@ -147,7 +147,7 @@ export default function BlogPage() {
                   <p className="text-xs text-gray-500 mb-3">{post.date}</p>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-jio-navy mb-3 group-hover:text-jio-purple transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold mb-3 transition-colors line-clamp-2" style={{ color: '#0F172A' }} onMouseEnter={(e) => { e.currentTarget.style.color = '#635BFF'; }} onMouseLeave={(e) => { e.currentTarget.style.color = '#0F172A'; }}>
                     {post.title}
                   </h3>
 
@@ -157,7 +157,7 @@ export default function BlogPage() {
                   </p>
 
                   {/* CTA */}
-                  <div className="text-jio-purple font-semibold text-sm group-hover:gap-3 flex items-center gap-1 transition-all">
+                  <div className="font-semibold text-sm group-hover:gap-3 flex items-center gap-1 transition-all" style={{ color: '#635BFF' }}>
                     Read article →
                   </div>
                 </div>
@@ -167,7 +167,7 @@ export default function BlogPage() {
 
           {/* Load More */}
           <div className="text-center mt-16">
-            <button className="px-8 py-4 border-2 border-jio-purple text-jio-purple rounded-lg font-semibold hover:bg-jio-purple/5 transition-all">
+            <button className="px-8 py-4 border-2 rounded-lg font-semibold transition-all" style={{ borderColor: '#635BFF', color: '#635BFF' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(99, 91, 255, 0.05)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}>
               Load More Articles
             </button>
           </div>

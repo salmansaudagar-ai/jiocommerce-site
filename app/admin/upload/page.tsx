@@ -58,7 +58,7 @@ export default function UploadPage() {
     <>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-jio-navy mb-2">Upload Content</h1>
+        <h1 className="text-3xl font-bold mb-2" style={{ color: '#0F172A' }}>Upload Content</h1>
         <p className="text-gray-600">Upload PPTX files for content processing</p>
       </div>
 
@@ -68,17 +68,17 @@ export default function UploadPage() {
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
-          className={`border-2 border-dashed rounded-lg p-12 text-center transition-colors ${
-            isDragging
-              ? 'border-jio-purple bg-jio-purple/5'
-              : 'border-gray-300 bg-gray-50 hover:border-jio-purple'
-          }`}
+          className="border-2 border-dashed rounded-lg p-12 text-center transition-colors"
+          style={{
+            borderColor: isDragging ? '#635BFF' : '#d1d5db',
+            backgroundColor: isDragging ? 'rgba(99, 91, 255, 0.05)' : '#f9fafb'
+          }}
         >
-          <div className="mb-4 inline-block p-4 bg-jio-purple/10 rounded-full">
-            <FiUploadCloud className="w-8 h-8 text-jio-purple" />
+          <div className="mb-4 inline-block p-4 rounded-full" style={{ backgroundColor: 'rgba(99, 91, 255, 0.1)' }}>
+            <FiUploadCloud className="w-8 h-8" style={{ color: '#635BFF' }} />
           </div>
 
-          <h3 className="text-xl font-semibold text-jio-navy mb-2">
+          <h3 className="text-xl font-semibold mb-2" style={{ color: '#0F172A' }}>
             Drag and drop your PPTX file
           </h3>
           <p className="text-gray-600 mb-6">or</p>
@@ -92,7 +92,8 @@ export default function UploadPage() {
             />
             <button
               onClick={() => {}}
-              className="px-6 py-3 bg-jio-purple text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all cursor-pointer"
+              className="px-6 py-3 text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all cursor-pointer"
+              style={{ backgroundColor: '#635BFF' }}
             >
               Browse Files
             </button>
@@ -146,15 +147,15 @@ export default function UploadPage() {
       {/* Info */}
       <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h4 className="font-semibold text-jio-navy mb-2">Supported Format</h4>
+          <h4 className="font-semibold mb-2" style={{ color: '#0F172A' }}>Supported Format</h4>
           <p className="text-sm text-gray-600">PowerPoint presentations (.pptx) only</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h4 className="font-semibold text-jio-navy mb-2">File Size</h4>
+          <h4 className="font-semibold mb-2" style={{ color: '#0F172A' }}>File Size</h4>
           <p className="text-sm text-gray-600">Maximum 50MB per file</p>
         </div>
         <div className="bg-white rounded-lg border border-gray-200 p-6">
-          <h4 className="font-semibold text-jio-navy mb-2">Processing</h4>
+          <h4 className="font-semibold mb-2" style={{ color: '#0F172A' }}>Processing</h4>
           <p className="text-sm text-gray-600">Files are processed within minutes</p>
         </div>
       </div>

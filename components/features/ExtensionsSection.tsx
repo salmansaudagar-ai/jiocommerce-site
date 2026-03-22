@@ -9,37 +9,37 @@ const EXTENSIONS = [
     title: 'Gamified Shopping',
     description: 'Engage customers with loyalty points, badges, and rewards to increase repeat purchases.',
     icon: '🎮',
-    color: 'from-jio-purple',
+    color: '#635BFF',
   },
   {
     title: 'AR Try-On',
     description: 'Let customers virtually try products before buying with augmented reality technology.',
     icon: '👓',
-    color: 'from-jio-blue',
+    color: '#3B82F6',
   },
   {
     title: 'AI Product Suggestions',
     description: 'Smart recommendations powered by machine learning to boost average order value.',
     icon: '🤖',
-    color: 'from-jio-teal',
+    color: '#10B981',
   },
   {
     title: 'Coupons & Loyalty',
     description: 'Manage promotional campaigns and customer loyalty programs with ease.',
     icon: '🎟️',
-    color: 'from-jio-amber',
+    color: '#F59E0B',
   },
   {
     title: 'Live Shopping',
     description: 'Host interactive live shopping events to increase engagement and sales.',
     icon: '📺',
-    color: 'from-jio-purple',
+    color: '#635BFF',
   },
   {
     title: 'Social Commerce',
     description: 'Sell directly through social media platforms with seamless integration.',
     icon: '📱',
-    color: 'from-jio-blue',
+    color: '#3B82F6',
   },
 ];
 
@@ -67,8 +67,8 @@ export default function ExtensionsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-jio-navy mb-6">
-            Extend & Enhance with <span className="text-jio-purple">JCP Extensions</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#0F172A' }}>
+            Extend & Enhance with <span style={{ color: '#635BFF' }}>JCP Extensions</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Powerful add-ons to supercharge your commerce experience
@@ -88,21 +88,21 @@ export default function ExtensionsSection() {
                   key={index}
                   className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3"
                 >
-                  <div className={`bg-gradient-to-br ${ext.color} to-opacity-10 rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow group cursor-pointer h-full`}>
+                  <div className="rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow group cursor-pointer h-full" style={{ background: `linear-gradient(to bottom right, ${ext.color}15, transparent)` }}>
                     {/* Header with color */}
-                    <div className={`bg-gradient-to-r ${ext.color} to-opacity-80 h-32 flex items-center justify-center group-hover:scale-105 transition-transform`}>
+                    <div className="h-32 flex items-center justify-center group-hover:scale-105 transition-transform" style={{ background: `linear-gradient(to right, ${ext.color}, ${ext.color}cc)` }}>
                       <div className="text-6xl">{ext.icon}</div>
                     </div>
 
                     {/* Content */}
                     <div className="p-8">
-                      <h4 className="text-xl font-bold text-jio-navy mb-3">
+                      <h4 className="text-xl font-bold mb-3" style={{ color: '#0F172A' }}>
                         {ext.title}
                       </h4>
                       <p className="text-gray-600 mb-6 text-sm leading-relaxed">
                         {ext.description}
                       </p>
-                      <button className="text-jio-purple font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all group/btn">
+                      <button className="font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all group/btn" style={{ color: '#635BFF' }}>
                         Explore →
                       </button>
                     </div>
@@ -117,22 +117,36 @@ export default function ExtensionsSection() {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className={`p-3 rounded-full border-2 transition-all ${
-                currentIndex === 0
-                  ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                  : 'border-jio-purple text-jio-purple hover:bg-jio-purple/10'
-              }`}
+              className="p-3 rounded-full border-2 transition-all"
+              style={{
+                borderColor: currentIndex === 0 ? '#e5e7eb' : '#635BFF',
+                color: currentIndex === 0 ? '#d1d5db' : '#635BFF',
+                backgroundColor: currentIndex === 0 ? 'transparent' : 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (currentIndex !== 0) e.currentTarget.style.backgroundColor = 'rgba(99, 91, 255, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
             >
               <FiChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               disabled={currentIndex >= maxIndex}
-              className={`p-3 rounded-full border-2 transition-all ${
-                currentIndex >= maxIndex
-                  ? 'border-gray-200 text-gray-300 cursor-not-allowed'
-                  : 'border-jio-purple text-jio-purple hover:bg-jio-purple/10'
-              }`}
+              className="p-3 rounded-full border-2 transition-all"
+              style={{
+                borderColor: currentIndex >= maxIndex ? '#e5e7eb' : '#635BFF',
+                color: currentIndex >= maxIndex ? '#d1d5db' : '#635BFF',
+                backgroundColor: 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (currentIndex < maxIndex) e.currentTarget.style.backgroundColor = 'rgba(99, 91, 255, 0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
             >
               <FiChevronRight className="w-5 h-5" />
             </button>

@@ -66,7 +66,7 @@ export default function AdminDashboard() {
     <>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-jio-navy">Dashboard</h1>
+        <h1 className="text-3xl font-bold" style={{ color: '#0F172A' }}>Dashboard</h1>
         <p className="text-gray-600">Welcome back! Here's what's happening.</p>
       </div>
 
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
                 <h3 className="text-sm font-medium text-gray-600">{card.label}</h3>
                 <Icon className={`w-5 h-5 ${card.color}`} />
               </div>
-              <div className="text-3xl font-bold text-jio-navy">{card.value}</div>
+              <div className="text-3xl font-bold" style={{ color: '#0F172A' }}>{card.value}</div>
             </div>
           );
         })}
@@ -91,13 +91,13 @@ export default function AdminDashboard() {
 
       {/* Action Buttons */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-        <Button className="bg-jio-purple text-white py-3 px-6 rounded-lg hover:bg-opacity-90 font-semibold">
+        <Button className="text-white py-3 px-6 rounded-lg hover:bg-opacity-90 font-semibold" style={{ backgroundColor: '#635BFF' }}>
           Run Ingest
         </Button>
-        <Button className="bg-jio-blue text-white py-3 px-6 rounded-lg hover:bg-opacity-90 font-semibold">
+        <Button className="text-white py-3 px-6 rounded-lg hover:bg-opacity-90 font-semibold" style={{ backgroundColor: '#3B82F6' }}>
           Run Research
         </Button>
-        <Button className="bg-jio-teal text-white py-3 px-6 rounded-lg hover:bg-opacity-90 font-semibold">
+        <Button className="text-white py-3 px-6 rounded-lg hover:bg-opacity-90 font-semibold" style={{ backgroundColor: '#10B981' }}>
           Run Scout
         </Button>
       </div>
@@ -105,7 +105,7 @@ export default function AdminDashboard() {
       {/* Activity Feed */}
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
         <div className="p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-jio-navy">Recent Activity</h2>
+          <h2 className="text-xl font-bold" style={{ color: '#0F172A' }}>Recent Activity</h2>
         </div>
 
         <div className="divide-y divide-gray-200">
@@ -115,7 +115,7 @@ export default function AdminDashboard() {
               className="p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
             >
               <div className="flex-1">
-                <h4 className="font-semibold text-jio-navy">{item.action}</h4>
+                <h4 className="font-semibold" style={{ color: '#0F172A' }}>{item.action}</h4>
                 <p className="text-sm text-gray-600">{item.result}</p>
               </div>
               <div className="text-right">
