@@ -3,7 +3,7 @@
  * Flags stale metrics and blog posts
  */
 
-import { sanityClient } from '@/lib/sanity/client';
+import { getSanityClient } from '@/lib/sanity/client';
 import { addToQueue } from '@/lib/supabase/queue';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import type { HealthIssue } from '../types';
@@ -34,7 +34,7 @@ export async function checkFreshness(): Promise<{
       } | order(updatedAt asc)
     `;
 
-    const metrics = (await sanityClient.fetch(metricsQuery)) as any[];
+    const metrics = (await getSanityClient().fetch(metricsQuery)) as any[];
 
     for (const metric of metrics) {
       const updatedDate = new Date(metric.updatedAt);
@@ -94,7 +94,7 @@ export async function checkFreshness(): Promise<{
       } | order(publishedAt asc)
     `;
 
-    const posts = (await sanityClient.fetch(blogQuery)) as any[];
+    const posts = (await getSanityClient().fetch(blogQuery)) as any[];
 
     for (const post of posts) {
       const publishedDate = new Date(post.publishedAt);

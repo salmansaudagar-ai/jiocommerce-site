@@ -47,7 +47,7 @@ export async function generateImage(prompt: string): Promise<string> {
 
     imageGenerationCount++;
 
-    const url = response.data[0]?.url;
+    const url = response.data?.[0]?.url;
 
     if (!url) {
       console.error('No image URL in response');

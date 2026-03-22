@@ -3,7 +3,7 @@
  * Validates image URLs and replaces broken images with placeholders
  */
 
-import { sanityClient, sanityWriteClient } from '@/lib/sanity/client';
+import { getSanityClient, getSanityWriteClient } from '@/lib/sanity/client';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import type { HealthIssue } from '../types';
 
@@ -41,7 +41,7 @@ export async function checkImages(): Promise<{
       }
     `;
 
-    const documents = (await sanityClient.fetch(query)) as any[];
+    const documents = (await getSanityClient().fetch(query)) as any[];
 
     for (const doc of documents) {
       const imageFields = ['coverImage', 'ogImage', 'logo'];
@@ -61,7 +61,6 @@ export async function checkImages(): Promise<{
         try {
           const response = await fetch(imageUrl, {
             method: 'HEAD',
-            timeout: 5000,
           });
 
           if (response.status === 404 || response.status >= 500) {
@@ -83,7 +82,7 @@ export async function checkImages(): Promise<{
                 [field]: PLACEHOLDER_IMAGE,
               };
 
-              await sanityWriteClient
+              await getSanityWriteClient()
                 .patch(doc._id)
                 .set(patch)
                 .commit();
@@ -124,7 +123,7 @@ export async function checkImages(): Promise<{
               [field]: PLACEHOLDER_IMAGE,
             };
 
-            await sanityWriteClient
+            await getSanityWriteClient()
               .patch(doc._id)
               .set(patch)
               .commit();

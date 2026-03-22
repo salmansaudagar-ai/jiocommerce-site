@@ -41,8 +41,11 @@ Respond with JSON:
     const response = await this.client.chat.completions.create({
       model: 'gpt-4-turbo',
       max_tokens: 256,
-      system: systemPrompt,
       messages: [
+        {
+          role: 'system',
+          content: systemPrompt,
+        },
         {
           role: 'user',
           content: `Classify this content:\n\n${input}`,
@@ -113,8 +116,11 @@ Respond with JSON:
     const response = await this.client.chat.completions.create({
       model: 'gpt-4-turbo',
       max_tokens: 1024,
-      system: systemPrompt,
       messages: [
+        {
+          role: 'system',
+          content: systemPrompt,
+        },
         {
           role: 'user',
           content: `Validate this content:\n\n${content}`,

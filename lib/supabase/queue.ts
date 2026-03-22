@@ -1,4 +1,4 @@
-import { supabase } from './client';
+import { getSupabase } from './client';
 
 export interface QueueItem {
   id?: string;
@@ -16,7 +16,7 @@ export interface QueueItem {
 }
 
 export async function getQueueItems(status?: string) {
-  const query = supabase
+  const query = (getSupabase() as any)
     .from('content_queue')
     .select('*')
     .order('created_at', { ascending: false });
@@ -31,7 +31,7 @@ export async function getQueueItems(status?: string) {
 }
 
 export async function addToQueue(item: QueueItem) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('content_queue')
     .insert([item])
     .select();
@@ -44,7 +44,7 @@ export async function updateQueueItem(
   id: string,
   updates: Partial<QueueItem>
 ) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('content_queue')
     .update(updates)
     .eq('id', id)
@@ -55,7 +55,7 @@ export async function updateQueueItem(
 }
 
 export async function getQueueStats() {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('content_queue')
     .select('status', { count: 'exact' });
 

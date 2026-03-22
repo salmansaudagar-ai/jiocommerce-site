@@ -3,7 +3,7 @@
  * Validates SEO fields (metaDescription, title, sections)
  */
 
-import { sanityClient } from '@/lib/sanity/client';
+import { getSanityClient } from '@/lib/sanity/client';
 import { addToQueue } from '@/lib/supabase/queue';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import { getProvider } from '@/lib/ai/provider';
@@ -34,7 +34,7 @@ export async function checkSEO(): Promise<{
       }
     `;
 
-    const documents = (await sanityClient.fetch(query)) as any[];
+    const documents = (await getSanityClient().fetch(query)) as any[];
     const provider = getProvider();
 
     for (const doc of documents) {

@@ -1,4 +1,4 @@
-import { sanityWriteClient } from './client';
+import { getSanityWriteClient } from './client';
 
 export async function publishToSanity(
   docType: string,
@@ -6,7 +6,7 @@ export async function publishToSanity(
   content: Record<string, unknown>
 ) {
   try {
-    const result = await sanityWriteClient.createOrReplace({
+    const result = await getSanityWriteClient().createOrReplace({
       _type: docType,
       _id: docId,
       ...content,
@@ -24,7 +24,7 @@ export async function publishDraft(
 ) {
   try {
     const draftId = `drafts.${Math.random().toString(36).slice(2)}`;
-    const result = await sanityWriteClient.create({
+    const result = await getSanityWriteClient().create({
       _type: docType,
       _id: draftId,
       ...content,
@@ -38,7 +38,7 @@ export async function publishDraft(
 
 export async function deleteSanityDoc(docId: string) {
   try {
-    await sanityWriteClient.delete(docId);
+    await getSanityWriteClient().delete(docId);
     return { success: true, deletedId: docId };
   } catch (error) {
     console.error('Error deleting document:', error);

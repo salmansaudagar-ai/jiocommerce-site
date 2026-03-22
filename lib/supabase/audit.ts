@@ -1,4 +1,4 @@
-import { supabase } from './client';
+import { getSupabase } from './client';
 
 export interface AuditEntry {
   action: string;
@@ -11,9 +11,9 @@ export interface AuditEntry {
 }
 
 export async function logAuditEntry(entry: AuditEntry) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('audit_log')
-    .insert([entry])
+    .insert([entry] as any)
     .select();
 
   if (error) throw error;
@@ -21,7 +21,7 @@ export async function logAuditEntry(entry: AuditEntry) {
 }
 
 export async function getAuditLog(limit: number = 50, offset: number = 0) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('audit_log')
     .select('*')
     .order('created_at', { ascending: false })
@@ -35,7 +35,7 @@ export async function getAuditByTarget(
   targetSchema: string,
   targetId: string
 ) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('audit_log')
     .select('*')
     .eq('target_schema', targetSchema)

@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
       quality: 'standard',
     });
 
-    const imageUrl = response.data[0]?.url;
+    const imageUrl = response.data?.[0]?.url;
 
     if (!imageUrl) {
       return NextResponse.json(

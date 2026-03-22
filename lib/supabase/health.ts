@@ -1,4 +1,4 @@
-import { supabase } from './client';
+import { getSupabase } from './client';
 
 export interface HealthCheckResult {
   issues_found: number;
@@ -9,7 +9,7 @@ export interface HealthCheckResult {
 }
 
 export async function saveHealthCheck(result: HealthCheckResult) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('health_checks')
     .insert([result])
     .select();
@@ -19,7 +19,7 @@ export async function saveHealthCheck(result: HealthCheckResult) {
 }
 
 export async function getLatestHealthCheck() {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('health_checks')
     .select('*')
     .order('run_at', { ascending: false })
@@ -34,7 +34,7 @@ export async function getLatestHealthCheck() {
 }
 
 export async function getHealthHistory(limit: number = 10) {
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('health_checks')
     .select('*')
     .order('run_at', { ascending: false })
@@ -48,7 +48,7 @@ export async function getAverageHealthScore(daysBack: number = 7) {
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - daysBack);
 
-  const { data, error } = await supabase
+  const { data, error } = await (getSupabase() as any)
     .from('health_checks')
     .select('health_score')
     .gte('run_at', cutoffDate.toISOString());
@@ -57,6 +57,6 @@ export async function getAverageHealthScore(daysBack: number = 7) {
 
   if (!data || data.length === 0) return 0;
 
-  const sum = data.reduce((acc, item: any) => acc + item.health_score, 0);
+  const sum = data.reduce((acc: number, item: any) => acc + item.health_score, 0);
   return sum / data.length;
 }

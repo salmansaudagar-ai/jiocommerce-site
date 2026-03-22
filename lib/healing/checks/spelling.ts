@@ -3,8 +3,8 @@
  * Validates spelling using LLM with brand term whitelist
  */
 
-import { sanityClient } from '@/lib/sanity/client';
-import { supabaseAdmin } from '@/lib/supabase/client';
+import { getSanityClient } from '@/lib/sanity/client';
+import { getSupabaseAdmin } from '@/lib/supabase/client';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import { getProvider } from '@/lib/ai/provider';
 import type { HealthIssue } from '../types';
@@ -38,7 +38,7 @@ export async function checkSpelling(): Promise<{
       }
     `;
 
-    const documents = (await sanityClient.fetch(query)) as any[];
+    const documents = (await getSanityClient().fetch(query)) as any[];
     const provider = getProvider();
 
     for (const doc of documents) {
@@ -119,14 +119,18 @@ Respond with JSON listing only actual spelling errors (not brand terms):
  */
 async function getBrandTermsWhitelist(): Promise<string[]> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { data } = await supabaseAdmin
       .from('kv_store')
       .select('value')
       .eq('key', 'brand_terms_whitelist')
       .single();
 
-    if (data?.value) {
-      return JSON.parse(data.value);
+    if (data && 'value' in data) {
+      const value = (data as any).value;
+      if (value) {
+        return JSON.parse(value);
+      }
     }
   } catch (error) {
     console.error('Error loading brand terms whitelist:', error);

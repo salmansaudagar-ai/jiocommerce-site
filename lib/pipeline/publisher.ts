@@ -18,13 +18,13 @@ export async function publishQueueItem(
   try {
     // Fetch the queue item
     const items = await getQueueItems();
-    const queueItem = items.find((item: any) => item.id === queueItemId);
+    const queueItem = items.find((item: any) => item.id === queueItemId) as any;
 
     if (!queueItem) {
       throw new Error(`Queue item ${queueItemId} not found`);
     }
 
-    if (queueItem.status !== 'approved') {
+    if (queueItem?.status !== 'approved') {
       throw new Error(`Queue item ${queueItemId} is not approved for publishing`);
     }
 
@@ -33,9 +33,9 @@ export async function publishQueueItem(
 
     // Publish to Sanity
     const result = await publishToSanity(
-      queueItem.target_schema,
+      queueItem?.target_schema,
       docId,
-      queueItem.drafted_content
+      queueItem?.drafted_content
     );
 
     // Update queue item status
@@ -47,16 +47,16 @@ export async function publishQueueItem(
     // Log to audit trail
     await logAuditEntry({
       action: 'content_published',
-      target_schema: queueItem.target_schema,
+      target_schema: queueItem?.target_schema,
       target_id: result._id,
       change_summary: `Published by ${approvedBy}`,
-      source: queueItem.source,
-      ai_confidence: queueItem.ai_confidence,
+      source: queueItem?.source,
+      ai_confidence: queueItem?.ai_confidence,
       performed_by: approvedBy,
     });
 
     // Trigger ISR revalidation
-    await triggerRevalidation(queueItem.target_schema);
+    await triggerRevalidation(queueItem?.target_schema);
   } catch (error) {
     console.error('Error publishing queue item:', error);
     throw error;

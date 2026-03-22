@@ -3,7 +3,7 @@
  * Detects and removes placeholder text from content
  */
 
-import { sanityClient, sanityWriteClient } from '@/lib/sanity/client';
+import { getSanityClient, getSanityWriteClient } from '@/lib/sanity/client';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import type { HealthIssue } from '../types';
 
@@ -42,7 +42,7 @@ export async function checkPlaceholders(): Promise<{
       }
     `;
 
-    const documents = (await sanityClient.fetch(query)) as any[];
+    const documents = (await getSanityClient().fetch(query)) as any[];
 
     for (const doc of documents) {
       const fieldsToCheck = [
@@ -90,7 +90,7 @@ export async function checkPlaceholders(): Promise<{
                   [field]: cleaned,
                 };
 
-                await sanityWriteClient
+                await getSanityWriteClient()
                   .patch(doc._id)
                   .set(patch)
                   .commit();

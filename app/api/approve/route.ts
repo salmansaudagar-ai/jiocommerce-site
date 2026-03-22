@@ -38,7 +38,9 @@ export async function POST(request: NextRequest) {
 
     // Get queue item
     const items = await getQueueItems();
-    const queueItem = items.find((item: any) => item.id === queueItemId);
+    const queueItem = items.find(
+      (item: any) => item.id === queueItemId
+    ) as any;
 
     if (!queueItem) {
       return NextResponse.json(
@@ -58,9 +60,9 @@ export async function POST(request: NextRequest) {
       // Log approval
       await logAuditEntry({
         action: 'content_approved',
-        target_schema: queueItem.target_schema,
+        target_schema: queueItem?.target_schema,
         change_summary: 'Content approved for publishing',
-        source: queueItem.source,
+        source: queueItem?.source,
         performed_by: approvedBy || 'system',
       });
 
@@ -88,9 +90,9 @@ export async function POST(request: NextRequest) {
       // Log rejection
       await logAuditEntry({
         action: 'content_rejected',
-        target_schema: queueItem.target_schema,
+        target_schema: queueItem?.target_schema,
         change_summary: 'Content rejected',
-        source: queueItem.source,
+        source: queueItem?.source,
         performed_by: approvedBy || 'system',
       });
 

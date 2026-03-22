@@ -3,7 +3,7 @@
  * Applies low-risk auto-fixes to content issues
  */
 
-import { sanityWriteClient } from '@/lib/sanity/client';
+import { getSanityWriteClient } from '@/lib/sanity/client';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import type { HealthIssue } from './types';
 

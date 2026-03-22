@@ -3,7 +3,7 @@
  * Scans Slack channels for content and tracks ingestion state
  */
 
-import { supabaseAdmin } from '@/lib/supabase/client';
+import { getSupabaseAdmin } from '@/lib/supabase/client';
 
 export interface SlackMessage {
   id: string;
@@ -41,16 +41,6 @@ export async function scanSlackChannels(): Promise<SlackMessage[]> {
   // Scan each channel
   for (const channel of channels) {
     try {
-      const response = await fetch(
-        'https://slack.com/api/conversations.history',
-        {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${slackToken}`,
-          },
-        }
-      );
-
       const params = new URLSearchParams({
         channel,
         oldest: oldestTimestamp.toString(),
@@ -111,13 +101,17 @@ export async function scanSlackChannels(): Promise<SlackMessage[]> {
  */
 async function getLastScanTime(): Promise<string | null> {
   try {
+    const supabaseAdmin = getSupabaseAdmin();
     const { data } = await supabaseAdmin
       .from('kv_store')
       .select('value')
       .eq('key', 'slack_last_scan')
       .single();
 
-    return data?.value || null;
+    if (data && 'value' in data) {
+      return (data as any).value || null;
+    }
+    return null;
   } catch {
     return null;
   }
@@ -130,6 +124,7 @@ async function updateLastScanTime(): Promise<void> {
   const now = new Date().toISOString();
 
   try {
+    const supabaseAdmin = getSupabaseAdmin() as any;
     // Try to update first
     const { error: updateError } = await supabaseAdmin
       .from('kv_store')

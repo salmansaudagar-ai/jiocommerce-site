@@ -3,7 +3,7 @@
  * Caches research results with 7-day TTL
  */
 
-import { supabaseAdmin } from '@/lib/supabase/client';
+import { getSupabaseAdmin } from '@/lib/supabase/client';
 
 export interface CacheEntry {
   sourceUrl: string;
@@ -21,6 +21,7 @@ export async function getCachedResearch(
   sourceUrl: string
 ): Promise<CacheEntry | null> {
   try {
+    const supabaseAdmin = getSupabaseAdmin() as any;
     const { data } = await supabaseAdmin
       .from('research_cache')
       .select('*')
@@ -53,6 +54,7 @@ export async function cacheResearch(entry: CacheEntry): Promise<void> {
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + CACHE_TTL_DAYS);
 
+    const supabaseAdmin = getSupabaseAdmin() as any;
     await supabaseAdmin.from('research_cache').insert({
       source_url: entry.sourceUrl,
       content: entry.content,
@@ -69,6 +71,7 @@ export async function cacheResearch(entry: CacheEntry): Promise<void> {
  */
 export async function clearExpiredCache(): Promise<number> {
   try {
+    const supabaseAdmin = getSupabaseAdmin() as any;
     const { count } = await supabaseAdmin
       .from('research_cache')
       .delete()

@@ -3,7 +3,7 @@
  * Validates internal links and removes/flags dead links
  */
 
-import { sanityClient, sanityWriteClient } from '@/lib/sanity/client';
+import { getSanityClient, getSanityWriteClient } from '@/lib/sanity/client';
 import { logAuditEntry } from '@/lib/supabase/audit';
 import type { HealthIssue } from '../types';
 
@@ -42,7 +42,7 @@ export async function checkLinks(): Promise<{
       }
     `;
 
-    const documents = (await sanityClient.fetch(query)) as any[];
+    const documents = (await getSanityClient().fetch(query)) as any[];
 
     for (const doc of documents) {
       if (!doc.content || typeof doc.content !== 'string') continue;
@@ -91,7 +91,7 @@ export async function checkLinks(): Promise<{
             updated = updated.replace(deadLink, text);
           }
 
-          await sanityWriteClient
+          await getSanityWriteClient()
             .patch(doc._id)
             .set({ content: updated })
             .commit();

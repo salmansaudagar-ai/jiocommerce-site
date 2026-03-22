@@ -37,7 +37,7 @@ export async function routeContent(
   };
 
   // Add to queue
-  const result = await addToQueue(queueItem);
+  const result = (await addToQueue(queueItem)) as any;
 
   if (!result || !result.id) {
     throw new Error('Failed to add content to queue');

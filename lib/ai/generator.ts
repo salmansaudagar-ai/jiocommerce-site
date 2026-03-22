@@ -61,7 +61,7 @@ async function generateMetricDocument(
       ? value
       : parseFloat(value.replace(/,/g, '')),
     displayLabel: `${displayLabel} ${unit}`,
-    displayLocation: ['home'],
+    displayLocation: 'home',
     source: sourceRef || 'ai_generated',
   };
 }
@@ -91,10 +91,10 @@ async function generateCustomerWinDocument(
   return {
     _type: 'customer',
     name: companyName,
-    slug: { _type: 'slug', current: slug },
+    slug: slug,
     title,
     highlightMetric: metric ? { _type: 'reference', _ref: 'metric_id' } : undefined,
-    displayOn: ['home', 'solutions'],
+    displayOn: 'home',
     source: sourceRef || 'ai_generated',
   };
 }
@@ -129,7 +129,7 @@ Respond as JSON: { "title": "...", "description": "..." }`;
     return {
       _type: 'feature',
       title,
-      slug: { _type: 'slug', current: slug },
+      slug: slug,
       description: parsed.description || content.slice(0, 200),
       category: 'platform',
       source: sourceRef || 'ai_generated',
@@ -143,7 +143,7 @@ Respond as JSON: { "title": "...", "description": "..." }`;
     return {
       _type: 'feature',
       title,
-      slug: { _type: 'slug', current: slug },
+      slug: slug,
       description: content.slice(0, 200),
       category: 'platform',
       source: sourceRef || 'ai_generated',
@@ -179,7 +179,7 @@ Respond as JSON: { "title": "...", "excerpt": "...", "slug": "...", "outline": [
     return {
       _type: 'post',
       title: parsed.title || 'Untitled Post',
-      slug: { _type: 'slug', current: parsed.slug || 'untitled-post' },
+      slug: parsed.slug || 'untitled-post',
       excerpt: parsed.excerpt || content.slice(0, 100),
       content: content,
       metaDescription:
@@ -196,10 +196,7 @@ Respond as JSON: { "title": "...", "excerpt": "...", "slug": "...", "outline": [
     return {
       _type: 'post',
       title,
-      slug: {
-        _type: 'slug',
-        current: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
-      },
+      slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
       excerpt: content.slice(0, 100),
       content: content,
       status: 'draft',
