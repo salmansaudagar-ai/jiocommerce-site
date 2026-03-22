@@ -15,10 +15,11 @@ export default defineType({
       title: 'Metrics',
       type: 'array',
       of: [
-        defineField({
+        {
+          name: 'metricRef',
           type: 'reference',
           to: [{ type: 'metric' }],
-        }),
+        },
       ],
       validation: (Rule) => Rule.required(),
     }),

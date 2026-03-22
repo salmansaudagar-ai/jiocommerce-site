@@ -15,7 +15,7 @@ export default defineType({
       title: 'Features',
       type: 'array',
       of: [
-        defineType({
+        {
           type: 'object',
           name: 'featureItem',
           title: 'Feature Item',
@@ -38,7 +38,7 @@ export default defineType({
               description: 'Icon name from react-icons',
             }),
           ],
-        }),
+        },
       ],
     }),
   ],

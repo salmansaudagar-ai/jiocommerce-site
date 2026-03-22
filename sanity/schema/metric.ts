@@ -9,7 +9,7 @@ export default defineType({
       name: 'key',
       title: 'Key',
       type: 'string',
-      validation: (Rule) => Rule.required().unique(),
+      validation: (Rule) => Rule.required(),
       description: 'Unique identifier for this metric (e.g., "gdp-2024", "user-growth")',
     }),
     defineField({

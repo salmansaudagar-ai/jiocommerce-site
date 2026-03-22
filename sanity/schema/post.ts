@@ -18,7 +18,7 @@ export default defineType({
       options: {
         source: 'title',
       },
-      validation: (Rule) => Rule.required().unique(),
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'excerpt',
