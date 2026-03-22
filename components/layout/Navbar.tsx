@@ -101,7 +101,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white shadow-lg backdrop-blur-sm'
+          ? 'bg-white shadow-xl backdrop-blur-lg border-b border-gray-200/50'
           : 'bg-white'
       }`}
     >
@@ -133,7 +133,7 @@ export default function Navbar() {
 
               {/* Mega Menu Dropdown */}
               {item.submenu && (
-                <div className="absolute left-0 mt-0 w-screen max-w-5xl bg-white shadow-2xl rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2">
+                <div className="absolute left-0 mt-0 w-screen max-w-5xl bg-white shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 border border-gray-100/50 backdrop-blur-xl">
                   <div className="grid grid-cols-2 gap-8 p-8">
                     {item.submenu.map((section) => (
                       <div key={section.category}>

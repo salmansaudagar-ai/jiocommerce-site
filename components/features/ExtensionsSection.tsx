@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight as FiChevronRightIcon } from 'react-icons/fi';
 
 const EXTENSIONS = [
   {
@@ -57,7 +57,7 @@ export default function ExtensionsSection() {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-white">
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -65,13 +65,17 @@ export default function ExtensionsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
-            Extend & Enhance with <span className="text-jio-purple">JCP Extensions</span>
+            Extend & Enhance with
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-jio-purple to-jio-blue">
+              JCP Extensions
+            </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Powerful add-ons to supercharge your commerce experience
+            Powerful add-ons to supercharge your commerce experience and engage customers
           </p>
         </motion.div>
 
@@ -88,23 +92,27 @@ export default function ExtensionsSection() {
                   key={index}
                   className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3"
                 >
-                  <div className="rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow group cursor-pointer h-full" style={{ background: `linear-gradient(to bottom right, ${ext.color}15, transparent)` }}>
+                  <div className="rounded-3xl overflow-hidden hover:shadow-2xl transition-all group cursor-pointer h-full border-2 border-gray-200/50 hover:border-gray-300 hover:-translate-y-2" style={{ background: `linear-gradient(to bottom right, ${ext.color}10, transparent)` }}>
                     {/* Header with color */}
-                    <div className="h-32 flex items-center justify-center group-hover:scale-105 transition-transform" style={{ background: `linear-gradient(to right, ${ext.color}, ${ext.color}cc)` }}>
-                      <div className="text-6xl">{ext.icon}</div>
+                    <div className="h-40 flex items-center justify-center group-hover:scale-110 transition-transform" style={{ background: `linear-gradient(135deg, ${ext.color}, ${ext.color}dd)` }}>
+                      <div className="text-7xl">{ext.icon}</div>
                     </div>
 
                     {/* Content */}
                     <div className="p-8">
-                      <h4 className="text-xl font-bold mb-3 text-jio-navy">
+                      <h4 className="text-xl font-bold mb-4 text-jio-navy">
                         {ext.title}
                       </h4>
-                      <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                      <p className="text-gray-600 mb-8 text-sm leading-relaxed">
                         {ext.description}
                       </p>
-                      <button className="font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all group/btn text-jio-purple">
-                        Explore →
-                      </button>
+                      <motion.button
+                        whileHover={{ x: 4 }}
+                        className="font-semibold text-sm flex items-center gap-3 hover:gap-4 transition-all group/btn text-jio-purple"
+                      >
+                        Explore
+                        <FiChevronRightIcon className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </motion.button>
                     </div>
                   </div>
                 </motion.div>
@@ -134,7 +142,7 @@ export default function ExtensionsSection() {
                   : 'border-jio-purple text-jio-purple hover:bg-jio-purple/10'
               }`}
             >
-              <FiChevronRight className="w-5 h-5" />
+              <FiChevronRightIcon className="w-5 h-5" />
             </button>
           </div>
         </div>

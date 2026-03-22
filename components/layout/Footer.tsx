@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-16" style={{ borderTop: '1px solid rgb(55, 65, 81)' }}></div>
+        <div className="my-16 border-t border-gray-700/50"></div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

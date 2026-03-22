@@ -59,7 +59,7 @@ export default function CentralServicesSection() {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-50">
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -67,14 +67,17 @@ export default function CentralServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
-            How Jio Commerce Platform<br />
-            <span className="text-jio-purple">Makes Business Easy</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy leading-tight">
+            How Jio Commerce Platform
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-jio-purple to-jio-teal">
+              Makes Business Easy
+            </span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Integrated services that work together to simplify commerce operations
+            Integrated services that simplify and accelerate commerce operations at scale
           </p>
         </motion.div>
 
@@ -84,23 +87,30 @@ export default function CentralServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12 bg-white rounded-2xl overflow-hidden transition-all group border border-jio-purple/20 hover:border-jio-purple/30"
+          className="mb-16 bg-white rounded-3xl overflow-hidden transition-all group border-2 border-jio-purple/20 hover:border-jio-purple/40 hover:shadow-2xl shadow-lg"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
             {/* Text */}
-            <div className="p-10 lg:p-12">
-              <h3 className="text-3xl font-bold mb-4 text-jio-navy">Master Data Hub</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+            <div className="p-10 lg:p-16">
+              <div className="inline-block mb-4 px-4 py-2 rounded-full bg-jio-purple/10 border border-jio-purple/20">
+                <span className="text-xs font-semibold uppercase tracking-wide text-jio-purple">Featured Service</span>
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-jio-navy leading-tight">Master Data Hub</h3>
+              <p className="text-gray-600 mb-8 leading-relaxed text-lg">
                 The central repository for all your product, customer, and business data. With built-in governance, quality controls, and multi-channel syndication capabilities.
               </p>
-              <button className="inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all group/btn text-jio-purple">
-                Learn about Master Data Hub →
-              </button>
+              <motion.button
+                whileHover={{ x: 4 }}
+                className="inline-flex items-center gap-3 font-semibold text-jio-purple hover:gap-4 transition-all group/btn text-base"
+              >
+                Learn about Master Data Hub
+                <span className="text-xl group-hover/btn:translate-x-1 transition-transform">→</span>
+              </motion.button>
             </div>
 
             {/* Illustration */}
-            <div className="aspect-square flex items-center justify-center p-10 bg-gradient-to-br from-jio-purple/20 to-jio-blue/20">
-              <div className="text-7xl">🗄️</div>
+            <div className="aspect-square flex items-center justify-center p-10 bg-gradient-to-br from-jio-purple/20 via-jio-blue/10 to-jio-teal/10 group-hover:from-jio-purple/30 group-hover:via-jio-blue/20 transition-all duration-300">
+              <div className="text-8xl scale-90 group-hover:scale-100 transition-transform duration-300">🗄️</div>
             </div>
           </div>
         </motion.div>
@@ -111,22 +121,25 @@ export default function CentralServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {SERVICES.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="bg-white rounded-xl p-8 border border-gray-200 transition-all group cursor-pointer hover:shadow-lg hover:border-jio-purple/30"
+              className="bg-white rounded-2xl p-8 border-2 border-gray-200/50 transition-all group cursor-pointer hover:shadow-xl hover:border-jio-purple/40 hover:-translate-y-1"
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h4 className="text-lg font-semibold mb-2 text-jio-navy group-hover:text-jio-purple transition-colors">
+              <div className="text-5xl mb-6 scale-90 group-hover:scale-100 transition-transform duration-300 origin-left">{service.icon}</div>
+              <h4 className="text-lg font-bold mb-3 text-jio-navy group-hover:text-jio-purple transition-colors">
                 {service.title}
               </h4>
-              <p className="text-gray-600 text-sm mb-4">{service.description}</p>
-              <button className="text-sm font-medium flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity text-jio-purple">
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">{service.description}</p>
+              <motion.button
+                whileHover={{ x: 4 }}
+                className="text-sm font-semibold flex items-center gap-2 group-hover:gap-3 transition-all text-jio-purple"
+              >
                 Explore <FiArrowRight className="w-4 h-4" />
-              </button>
+              </motion.button>
             </motion.div>
           ))}
         </motion.div>

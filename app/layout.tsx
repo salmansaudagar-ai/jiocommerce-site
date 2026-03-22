@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-white font-sans antialiased" style={{ color: '#0F172A' }}>
+      <body className="min-h-full flex flex-col bg-white font-sans antialiased text-jio-navy">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -53,7 +53,7 @@ export default function BlogPreviewSection() {
   };
 
   return (
-    <section className="py-20 lg:py-32 bg-gray-50">
+    <section className="py-20 lg:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -61,13 +61,13 @@ export default function BlogPreviewSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-jio-navy">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-jio-navy">
             Unlock Commerce Excellence
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Stay updated with insights, best practices, and industry trends
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Stay updated with insights, best practices, and industry trends shaping the future of commerce
           </p>
         </motion.div>
 
@@ -77,48 +77,51 @@ export default function BlogPreviewSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
           {BLOG_POSTS.map((post) => (
             <motion.article
               key={post.id}
               variants={cardVariants}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-200 transition-all hover:shadow-lg hover:border-jio-purple/30"
+              className="group bg-white rounded-3xl overflow-hidden border-2 border-gray-200/50 transition-all hover:shadow-2xl hover:border-jio-purple/40 hover:-translate-y-2"
             >
               {/* Image */}
-              <div className="aspect-video flex items-center justify-center text-6xl group-hover:scale-105 transition-transform overflow-hidden bg-gradient-to-br from-jio-purple/10 to-jio-teal/10">
+              <div className="aspect-video flex items-center justify-center text-6xl group-hover:scale-110 transition-transform overflow-hidden bg-gradient-to-br from-jio-purple/15 via-jio-blue/10 to-jio-teal/10">
                 {post.image}
               </div>
 
               {/* Content */}
-              <div className="p-6">
+              <div className="p-8">
                 {/* Category */}
-                <div className="inline-block mb-3">
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full text-jio-purple bg-jio-purple/10">
+                <div className="inline-block mb-4">
+                  <span className="text-xs font-bold px-3 py-1.5 rounded-full text-jio-purple bg-jio-purple/15 border border-jio-purple/20 uppercase tracking-wide">
                     {post.category}
                   </span>
                 </div>
 
                 {/* Date */}
-                <p className="text-xs text-gray-500 mb-3">{post.date}</p>
+                <p className="text-xs text-gray-500 mb-4 font-medium">{post.date}</p>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold mb-3 transition-colors line-clamp-2 text-jio-navy group-hover:text-jio-purple">
+                <h3 className="text-xl font-bold mb-4 transition-colors line-clamp-2 text-jio-navy group-hover:text-jio-purple leading-tight">
                   {post.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                <p className="text-gray-600 text-sm mb-8 line-clamp-2 leading-relaxed">
                   {post.excerpt}
                 </p>
 
                 {/* CTA */}
-                <Link
-                  href={`/blog/${post.id}`}
-                  className="inline-flex items-center gap-2 font-semibold text-sm hover:gap-3 transition-all group/link text-jio-purple"
-                >
-                  Read article →
-                </Link>
+                <motion.div whileHover={{ x: 4 }}>
+                  <Link
+                    href={`/blog/${post.id}`}
+                    className="inline-flex items-center gap-3 font-semibold text-sm hover:gap-4 transition-all group/link text-jio-purple"
+                  >
+                    Read article
+                    <span className="text-lg group-hover/link:translate-x-1 transition-transform">→</span>
+                  </Link>
+                </motion.div>
               </div>
             </motion.article>
           ))}
